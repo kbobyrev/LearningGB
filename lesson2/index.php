@@ -124,10 +124,9 @@
 		echo '<br>';
 
 	// 6 задание
-
+			//не сработает только -1 степень
 		function power($val,$pow){
 			if (is_numeric($val) && is_numeric($pow)){
-				//$temp_val=$val/$val
 				switch (true) {
 					case $pow==1:
 						return $val;
