@@ -21,62 +21,50 @@
 		<br>
 	<?php
 		//2 задание 
-		$a=25;
-		switch ($a) {
-			case 0:
-				echo	"0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15";
-				break;
-				case 1:
-				echo	"1,2,3,4,5,6,7,8,9,10,11,12,13,14,15";
-				break;
-				case 2:
-				echo	"2,3,4,5,6,7,8,9,10,11,12,13,14,15";
-				break;
-				case 3:
-				echo	"3,4,5,6,7,8,9,10,11,12,13,14,15";
-				break;
-				case 4:
-				echo	"4,5,6,7,8,9,10,11,12,13,14,15";
-				break;
-				case 5:
-				echo	"5,6,7,8,9,10,11,12,13,14,15";
-				break;
-				case 6:
-				echo	"6,7,8,9,10,11,12,13,14,15";
-				break;
-				case 7:
-				echo	"7,8,9,10,11,12,13,14,15";
-				break;
-				case 8:
-				echo	"8,9,10,11,12,13,14,15";
-				break;
-				case 9:
-				echo	"9,10,11,12,13,14,15";
-				break;
-				case 10:
-				echo	"10,11,12,13,14,15";
-				break;
-				case 11:
-				echo	"11,12,13,14,15";
-				break;
-				case 12:
-				echo	"12,13,14,15";
-				break;
-				case 13:
-				echo	"13,14,15";
-				break;
-				case 14:
-				echo	"14,15";
-				break;
-				case 15:
-				echo	"15";
-				break;
-
-			default:
-				echo "incorrect digit";
-				break;
-		}
-
+        function digits($dig){
+            $temp_str='';
+            switch ($dig) {
+                case 0:
+                    $temp_str.="0<br>";
+                    case 1:
+                    $temp_str.="1<br>";
+                    case 2:
+                    $temp_str.="2<br>";
+                    case 3:
+                    $temp_str.="3<br>";
+                    case 4:
+                    $temp_str.="4<br>";
+                    case 5:
+                    $temp_str.="5<br>";
+                    case 6:
+                    $temp_str.="6<br>";
+                    case 7:
+                    $temp_str.="7<br>";
+                    case 8:
+                    $temp_str.="8<br>";
+                    case 9:
+                    $temp_str.="9<br>";
+                    case 10:
+                    $temp_str.="10<br>";
+                    case 11:
+                    $temp_str.="11<br>";
+                    case 12:
+                    $temp_str.="12<br>";
+                    case 13:
+                    $temp_str.="13<br>";
+                    case 14:
+                    $temp_str.="14<br>";
+                    case 15:
+                    $temp_str.="15<br>";
+                    break;
+                default:
+                    echo "incorrect digit";
+                    break;
+            }
+            return $temp_str;
+        }
+        echo digits(2);
+        
 	?>
 	<br>
 	<?php
@@ -91,25 +79,29 @@
 		function mult_($a=1,$b=1){
 			return $a*$b;
 		}
-		function div_($a=1,$b=1){ //проверить на 0
+		function div_($a=1,$b=1){ 
+            if ($b=0){
+                return 'division by zero is prohibited';
+            }else{
 			return $a/$b;
+            }
 		}
 
 	// 4 задание
-		function mathOperation($arg1,$arg2,$operation){ //использовать функции выше
+		function mathOperation($arg1,$arg2,$operation){ 
 			if (is_numeric($arg1) && is_numeric($arg2)){
 				switch ($operation) {
 					case 'add':
-						return $arg1+$arg2;
+						return add_($arg1,$arg2);
 						break;
 					case 'dif':
-						return $arg1-$arg2;
+						return diff_($arg1,$arg2);
 						break;
 					case 'mult':
-						return $arg1*$arg2;
+						return mult_($arg1,$arg2);
 						break;
 					case 'div':
-						return $arg1/$arg2;
+						return div_($arg1,$arg2);
 						break;
 					default:
 						return	'incorrect operator';
@@ -124,25 +116,17 @@
 		echo '<br>';
 
 	// 6 задание
-			//не сработает только -1 степень
 		function power($val,$pow){
 			if (is_numeric($val) && is_numeric($pow)){
 				switch (true) {
 					case $pow==1:
 						return $val;
-						break;
 					case $pow>1:
 						return $val *power($val,$pow-1);
-						break;
-					case $pow ==0: // return 1
-						return 0;
-						break;	
-					case $pow <-1:
+					case $pow ==0: 
+						return 1;	
+					case $pow <-0:
 						return (1/$val) *(1/power($val,$pow+1));
-						break;	
-					case $pow ==-1:
-						return  $val;
-						break;
 				}
 				
 
@@ -153,7 +137,7 @@
 		}
 
 
-		echo power(3,0);
+		echo power(2,-1);
 		echo "<br>";
 
 		// 7
