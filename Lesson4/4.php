@@ -1,4 +1,4 @@
-<?
+<?php
     Function createGallery($img_folder_path=null){
         if ($img_folder_path!=null){
             $img_dir= scandir($img_folder_path); 
@@ -17,6 +17,7 @@
     }
 ?>
 <html>
+    
 <head>
     <title>Gallery</title>
     <link rel="stylesheet" href="css/styles.css">
@@ -26,5 +27,6 @@
   <?
     echo createGallery("images");    
  ?>
+    
 </body>
 </html>
