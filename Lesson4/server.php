@@ -1,5 +1,6 @@
 
-<?
+<?php
+
 $b_path = "photo/big/".$_FILES['photo']['name'];
 
 $s_path = "photo/small/".$_FILES['photo']['name'];
